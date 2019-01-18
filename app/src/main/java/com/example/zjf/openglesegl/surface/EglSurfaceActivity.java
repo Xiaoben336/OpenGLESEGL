@@ -1,8 +1,10 @@
-package com.example.zjf.openglesegl;
+package com.example.zjf.openglesegl.surface;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.zjf.openglesegl.R;
 
 public class EglSurfaceActivity extends AppCompatActivity {
 	@Override

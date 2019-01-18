@@ -3,7 +3,6 @@ package com.example.zjf.openglesegl;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -13,7 +12,7 @@ import java.lang.ref.WeakReference;
 import javax.microedition.khronos.egl.EGLContext;
 
 
-public abstract class JfEGLSurfaceVIew extends SurfaceView implements SurfaceHolder.Callback {
+public abstract class JfEGLSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 	private Surface surface;
 	private EGLContext eglContext;
 
@@ -24,15 +23,15 @@ public abstract class JfEGLSurfaceVIew extends SurfaceView implements SurfaceHol
 	public final static int RENDERMODE_CONTINUOUSLY = 1;
 	private int mRenderMode = RENDERMODE_CONTINUOUSLY;//默认自动刷新
 
-	public JfEGLSurfaceVIew(Context context) {
+	public JfEGLSurfaceView(Context context) {
 		this(context,null);
 	}
 
-	public JfEGLSurfaceVIew(Context context, AttributeSet attrs) {
+	public JfEGLSurfaceView(Context context, AttributeSet attrs) {
 		this(context, attrs,0);
 	}
 
-	public JfEGLSurfaceVIew(Context context, AttributeSet attrs, int defStyleAttr) {
+	public JfEGLSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		getHolder().addCallback(this);
 	}
@@ -74,7 +73,7 @@ public abstract class JfEGLSurfaceVIew extends SurfaceView implements SurfaceHol
 			surface = holder.getSurface();
 		}
 
-		jfEGLThread = new JfEGLThread(new WeakReference<JfEGLSurfaceVIew>(this));
+		jfEGLThread = new JfEGLThread(new WeakReference<JfEGLSurfaceView>(this));
 		jfEGLThread.isCreate = true;
 		jfEGLThread.start();
 	}
@@ -104,7 +103,7 @@ public abstract class JfEGLSurfaceVIew extends SurfaceView implements SurfaceHol
 
 
 	static class JfEGLThread extends Thread{
-		private WeakReference<JfEGLSurfaceVIew> jfEGLSurfaceVIewWeakReference = null;
+		private WeakReference<JfEGLSurfaceView> jfEGLSurfaceVIewWeakReference = null;
 		private EglHelper eglHelper = null;
 		private Object object = null;
 
@@ -116,7 +115,7 @@ public abstract class JfEGLSurfaceVIew extends SurfaceView implements SurfaceHol
 		private int width;
 		private int height;
 
-		public JfEGLThread(WeakReference<JfEGLSurfaceVIew> jfEGLSurfaceVIewWeakReference) {
+		public JfEGLThread(WeakReference<JfEGLSurfaceView> jfEGLSurfaceVIewWeakReference) {
 			this.jfEGLSurfaceVIewWeakReference = jfEGLSurfaceVIewWeakReference;
 		}
 

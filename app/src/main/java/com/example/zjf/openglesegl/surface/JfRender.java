@@ -1,9 +1,11 @@
-package com.example.zjf.openglesegl;
+package com.example.zjf.openglesegl.surface;
 
 import android.opengl.GLES20;
 import android.util.Log;
 
-public class JfRender implements JfEGLSurfaceVIew.JfGLRender {
+import com.example.zjf.openglesegl.JfEGLSurfaceView;
+
+public class JfRender implements JfEGLSurfaceView.JfGLRender {
 
 	public JfRender(){
 

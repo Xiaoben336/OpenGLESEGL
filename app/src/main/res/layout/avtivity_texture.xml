@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.zjf.openglesegl.surface.JfGLSurfaceView
-        android:id="@+id/jfsfv"
+    <com.example.zjf.openglesegl.texture.JfGLTextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>
